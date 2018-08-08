@@ -30,7 +30,6 @@ NAN_METHOD(MyObject::New) {
 
     obj->t = std::thread([obj] {
       while (true) {
-        ::usleep(1000);
         std::lock_guard<std::mutex> l(obj->mut);
         obj->value_++;
       }
